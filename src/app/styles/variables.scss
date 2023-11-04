@@ -1,0 +1,12 @@
+// light theme
+$foreground-light: 0, 0, 0;
+$background-start-light: 214, 219, 220;
+$background-end-light: 255, 255, 255;
+
+// dark theme
+
+$foreground-dark: 255, 255, 255;
+$background-start-dark: 0, 0, 0;
+$background-end-dark: 0, 0, 0;
+
+$foreground: var(--foreground-rgb);

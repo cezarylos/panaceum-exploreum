@@ -13,7 +13,7 @@ export const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: 'Panaceum Exploreum',
-  description: 'Ethereum blockchain explorer',
+  description: 'Ethereum explorer',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

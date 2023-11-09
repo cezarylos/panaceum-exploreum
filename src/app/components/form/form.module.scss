@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+
+  .text {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .submitButton {
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    background-color: var(--background-50);
+    border-radius: 2rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease-in-out;
+    border: 1px solid var(--primary-color);
+
+    &:hover:not(:disabled) {
+      background-color: var(--background-200);
+      transition: 0.2s ease-in-out;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

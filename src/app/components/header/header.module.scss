@@ -1,13 +1,47 @@
+@import "src/app/styles";
+
 .header {
   width: 100vw;
   height: 4rem;
-  background: var(--secondary-color);
+  background: var(--background-50);
   display: flex;
   justify-items: center;
   align-content: center;
+  box-shadow: 0 0 1rem var(--secondary-50);
 
   h1 {
-    font-size: 2rem;
     margin: auto;
+    position: relative;
+    color: var(--primary-color);
+    z-index: 1;
+    text-align: center;
+  }
+}
+
+@include media(map-get($breakpoints, md)){
+  .header {
+    h1 {
+      &:before {
+        content: '';
+        position: absolute;
+        inset: 1;
+        z-index: -1;
+        transform: skewY(-1deg) translateX(-0.25rem) translateY(1.35rem);
+        height: 20%;
+        width: calc(100% + 0.5rem);
+        background: var(--secondary-color);
+      }
+    }
+  }
+}
+
+@include media(map-get($breakpoints, xl)){
+  .header {
+    h1 {
+      &:before {
+        transform: skewY(-1deg) translateX(-0.5rem) translateY(1.75rem);
+        width: calc(100% + 1rem);
+      }
+    }
   }
 }

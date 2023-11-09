@@ -1,1 +1,1 @@
-export const headerTitle = 'Panaceum Exploreum - Ethereum blockchain explorer';
+export const headerTitle = 'Panaceum Exploreum - Ethereum explorer';

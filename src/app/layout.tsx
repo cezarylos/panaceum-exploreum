@@ -1,8 +1,10 @@
+import Header from '@/app/components/header/header';
 import type { Metadata } from 'next';
 import { Archivo } from 'next/font/google';
 import { ReactNode } from 'react';
 
 import './globals.scss';
+import styles from './layout.module.scss';
 
 export const archivo = Archivo({
   subsets: ['latin'],
@@ -17,7 +19,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={archivo.className}>{children}</body>
+      <body className={archivo.className}>
+        <main className={styles.mainWrapper}>
+          <Header />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

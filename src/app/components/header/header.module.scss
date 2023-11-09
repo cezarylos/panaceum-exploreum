@@ -1,0 +1,13 @@
+.header {
+  width: 100vw;
+  height: 4rem;
+  background: var(--secondary-color);
+  display: flex;
+  justify-items: center;
+  align-content: center;
+
+  h1 {
+    font-size: 2rem;
+    margin: auto;
+  }
+}

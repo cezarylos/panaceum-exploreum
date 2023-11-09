@@ -21,6 +21,7 @@ export interface BaseTransactionInterface {
   cumulativeGasUsed: string;
   gasUsed: string;
   confirmations: string;
+  txnFee?: string;
 }
 
 export interface TransactionInterface extends BaseTransactionInterface {
@@ -41,5 +42,7 @@ export interface NFTTransactionInterface extends BaseTransactionInterface {
 export interface TransactionWrapperInterface<T> {
   status: string;
   message: string;
-  result: T[];
+  result: T[] | string;
 }
+
+export type SortType = 'asc' | 'desc';

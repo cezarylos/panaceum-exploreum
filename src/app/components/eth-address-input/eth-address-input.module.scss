@@ -1,0 +1,12 @@
+.inputWrapper {
+  display: flex;
+  flex-flow: column;
+
+  input {
+
+  }
+
+  .inputInvalid {
+    border: 1px solid red;
+  }
+}

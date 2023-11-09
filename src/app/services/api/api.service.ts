@@ -1,6 +1,7 @@
 import {
   AccountBalanceInterface,
   NFTTransactionInterface,
+  SortType,
   TransactionInterface,
   TransactionWrapperInterface,
 } from '@/app/services/api/typings';
@@ -38,14 +39,14 @@ export class ApiService {
 
   public static async getListOfTransactions({
     address,
-    page = 1,
-    offset = 10,
+    page = '1',
+    offset = '10',
     sort = 'desc',
   }: {
     address: string;
-    page?: number;
-    offset?: number;
-    sort?: 'asc' | 'desc';
+    page?: string;
+    offset?: string;
+    sort?: SortType;
   }): Promise<TransactionWrapperInterface<TransactionInterface>> {
     const params = {
       ...baseAccountParams,

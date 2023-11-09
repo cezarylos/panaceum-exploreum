@@ -1,5 +1,3 @@
-@import "styles";
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,13 +49,27 @@ table {
 :root {
     --max-width: 1100px;
     --border-radius: 12px;
-    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-    --foreground-rgb: $foreground-light;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --primary-50: #D3B8FF; /* Indigo 50 */
+    --primary-100: #B197FF; /* Indigo 100 */
+    --primary-200: #8A6DFF; /* Indigo 200 */
+    --primary-300: #6449E2; /* Indigo 300 */
+    --primary-color: #6200EA; /* Indigo */
+    --secondary-50: #FFF9C4; /* Amber 50 */
+    --secondary-100: #FFF08A; /* Amber 100 */
+    --secondary-200: #FFE055; /* Amber 200 */
+    --secondary-300: #FFD600; /* Amber 300 */
+    --secondary-color: #FFC107; /* Amber */
+    --error-color: #FF6B6B; /* Red */
+    --success-color: #4CAF50; /* Green */
+    --warning-color: #FF9800; /* Orange */
+    --info-color: #2196F3; /* Blue */
+    --background-50: #FFEBEE; /* Light Pink 50 */
+    --background-100: #FFC2CC; /* Light Pink 100 */
+    --background-200: #FF9AAC; /* Light Pink 200 */
+    --background-300: #FF7886; /* Light Pink 300 */
+    --background-color: #FF5A6B; /* Light Pink */
+    --text-color: #333333; /* Dark Gray */
 
     --primary-glow: conic-gradient(
             from 180deg at 50% 50%,
@@ -92,9 +104,26 @@ table {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --foreground-rgb: $foreground-dark;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
+        --primary-50: #FCE8E8; /* Salmon 50 */
+        --primary-100: #F9C3C3; /* Salmon 100 */
+        --primary-200: #F69E9E; /* Salmon 200 */
+        --primary-300: #F47777; /* Salmon 300 */
+        --primary-color: #F76D57; /* Salmon */
+        --secondary-50: #FFFAE6; /* Gold 50 */
+        --secondary-100: #FFF0A4; /* Gold 100 */
+        --secondary-200: #FFE766; /* Gold 200 */
+        --secondary-300: #FFD700; /* Gold 300 */
+        --secondary-color: #FFD700; /* Gold */
+        --error-color: #FF5959; /* Crimson */
+        --success-color: #8BC34A; /* Light Green */
+        --warning-color: #FF9800; /* Orange */
+        --info-color: #03A9F4; /* Light Blue */
+        --background-50: #2E2E2E; /* Dark Gray 50 */
+        --background-100: #1D1D1D; /* Dark Gray 100 */
+        --background-200: #0D0D0D; /* Dark Gray 200 */
+        --background-300: #070707; /* Dark Gray 300 */
+        --background-color: #121212; /* Dark Gray */
+        --text-color: #E0E0E0; /* Light Gray */
 
         --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
         --secondary-glow: linear-gradient(
@@ -136,12 +165,13 @@ body {
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
+    height: 100vh;
+    color: var(--primary-color);
     background: linear-gradient(
             to bottom,
             transparent,
-            rgb(var(--background-end-rgb))
-    ) rgb(var(--background-start-rgb));
+            var(--background-50)
+    ) var(--background-300);
 }
 
 a {

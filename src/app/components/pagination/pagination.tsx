@@ -25,7 +25,7 @@ export default function Pagination({ currentPageOffsetResult }: PaginationProps)
   };
 
   const isPrevDisabled = currentPage === 1;
-  const inNextDisabled = currentPageOffsetResult === +defaultPageOffset;
+  const inNextDisabled = currentPageOffsetResult < +defaultPageOffset;
 
   const onNext = (): void => {
     if (inNextDisabled) {

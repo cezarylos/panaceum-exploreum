@@ -1,0 +1,20 @@
+@import "src/app/styles";
+
+.container {
+  display: flex;
+  align-items: center;
+  float: right;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  .currentPage {
+    color: var(--text-color);
+  }
+
+  button {
+    @include buttonStyles();
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    min-width: 7rem;
+  }
+}

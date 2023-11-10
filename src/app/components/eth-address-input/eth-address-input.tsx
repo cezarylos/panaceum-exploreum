@@ -30,17 +30,15 @@ function EthAddressInput(
 
   return (
     <div className={styles.inputWrapper}>
-      <label className={styles.label}>
-        {label}
-        <input
-          name={'ethAddress'}
-          type={'text'}
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder={placeholder}
-          className={classNames(styles.input, !isValidAddress && styles.inputInvalid)}
-        />
-      </label>
+      <label className={styles.label}>{label}</label>
+      <input
+        name={'ethAddress'}
+        type={'text'}
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder={placeholder}
+        className={classNames(styles.input, !isValidAddress && styles.inputInvalid)}
+      />
       {!isValidAddress && <span className={styles.errorText}>{invalidAddressText}</span>}
     </div>
   );

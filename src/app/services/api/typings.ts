@@ -1,9 +1,3 @@
-export interface AccountBalanceInterface {
-  status: string;
-  message: string;
-  result: string;
-}
-
 export interface BaseTransactionInterface {
   blockNumber: string;
   timeStamp: string;
@@ -29,14 +23,6 @@ export interface TransactionInterface extends BaseTransactionInterface {
   txreceipt_status: string;
   methodId: string;
   functionName: string;
-}
-
-export interface NFTTransactionInterface extends BaseTransactionInterface {
-  contractAddress: string;
-  tokenID: string;
-  tokenName: string;
-  tokenSymbol: string;
-  tokenDecimal: string;
 }
 
 export interface TransactionWrapperInterface<T> {

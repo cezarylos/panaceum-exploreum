@@ -1,25 +1,37 @@
 .tableContainer {
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 5px;
-  border: 1px solid #ccc;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  border: 1px solid var(--background-300);
   width: 100%;
-  overflow: auto; /* Add this rule to enable horizontal scrolling if necessary */
+  overflow: auto;
+  border-radius: 1rem;
+}
+
+.tableContent {
+  width: 10rem;
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addressField {
+  width: 15rem;
 }
 
 .tableHeader {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 100%;
 }
 
 .tableData {
-  background-color: #f0f0f0;
-  padding: 10px;
-  text-align: center;
-}
+  background-color: var(--background-100);
 
-.tableData:nth-child(odd) {
-  background-color: #e0e0e0;
+  span {
+    white-space: nowrap;
+  }
 }

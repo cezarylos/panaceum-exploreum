@@ -1,5 +1,9 @@
+import { tableHeaders } from '@/app/components/transactions/transactons.const';
 import { TransactionInterface } from '@/app/services/api/typings';
+import { addressTransform } from '@/app/utils/addressTransform';
+import { classNames } from '@/app/utils/classNames';
 import { etherFormatter } from '@/app/utils/etherFormatter';
+import { timestampToDaysHoursAgo } from '@/app/utils/formatTimestamp';
 import { Fragment, ReactElement, useMemo } from 'react';
 
 import styles from './transactions.module.scss';
@@ -13,34 +17,40 @@ export default function Transactions({ transactions }: TransactionsProps): React
     (): TransactionInterface[] =>
       transactions.map(transaction => ({
         ...transaction,
+        hash: addressTransform(transaction.hash),
+        timeStamp: timestampToDaysHoursAgo(transaction.timeStamp),
+        from: addressTransform(transaction.from),
+        to: addressTransform(transaction.to),
         value: etherFormatter(transaction.value),
         txnFee: etherFormatter(+transaction.gasPrice * +transaction.gasUsed),
       })),
     [transactions],
   );
 
+  const renderCell = (cell: string | number, isAddressField = false): ReactElement => (
+    <div className={classNames(styles.tableContent, styles.tableData, isAddressField && styles.addressField)}>
+      <span>{cell}</span>
+    </div>
+  );
+
   return (
     <section>
       <div className={styles.tableContainer}>
-        <div className={styles.tableHeader}>Transaction Hash</div>
-        <div className={styles.tableHeader}>Method</div>
-        <div className={styles.tableHeader}>Block</div>
-        <div className={styles.tableHeader}>Age</div>
-        <div className={styles.tableHeader}>From</div>
-        <div className={styles.tableHeader}>To</div>
-        <div className={styles.tableHeader}>Value</div>
-        <div className={styles.tableHeader}>Txn Fee</div>
+        {tableHeaders.map(header => (
+          <div key={header} className={classNames(styles.tableContent, styles.tableHeader)}>
+            {header}
+          </div>
+        ))}
 
         {data.map(transaction => (
           <Fragment key={transaction.hash}>
-            <div className={styles.tableData}>{transaction.hash}</div>
-            <div className={styles.tableData}>{transaction.functionName}</div>
-            <div className={styles.tableData}>{transaction.blockNumber}</div>
-            <div className={styles.tableData}>{transaction.timeStamp}</div>
-            <div className={styles.tableData}>{transaction.from}</div>
-            <div className={styles.tableData}>{transaction.to}</div>
-            <div className={styles.tableData}>{transaction.value}</div>
-            <div className={styles.tableData}>{transaction.txnFee}</div>
+            {renderCell(transaction.hash, true)}
+            {renderCell(transaction.blockNumber)}
+            {renderCell(transaction.timeStamp)}
+            {renderCell(transaction.from, true)}
+            {renderCell(transaction.to, true)}
+            {renderCell(transaction.value)}
+            {renderCell(transaction.txnFee as string)}
           </Fragment>
         ))}
       </div>

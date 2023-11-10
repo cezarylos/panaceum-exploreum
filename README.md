@@ -1,3 +1,16 @@
+## Developer's Notes
+
+Why I have chosen Next.js? In order to speed things up. I have used it before and I know how to use it. It is also very easy to deploy on Vercel. It provides routing and overall user experience like loading is smoother.
+
+This is a very limited version of transaction explorer. In next iterations those are the thing that could be added or done better:
+- [ ] Add tests
+- [ ] Make pagination more dynamic with page numbers and page size
+- [ ] Add search and filters
+- [ ] Add more details to transaction page
+- [ ] Add page for exploring a single transaction
+
+Nonetheless the project was fun!
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

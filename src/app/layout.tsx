@@ -6,7 +6,7 @@ import { ReactNode } from 'react';
 import './globals.scss';
 import styles from './layout.module.scss';
 
-export const archivo = Archivo({
+const archivo = Archivo({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 });

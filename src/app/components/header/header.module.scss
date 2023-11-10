@@ -3,11 +3,11 @@
 .header {
   width: 100vw;
   height: 4rem;
-  background: var(--background-50);
+  background: var(--background-color);
   display: flex;
   justify-items: center;
   align-content: center;
-  box-shadow: 0 0 1rem var(--secondary-50);
+  box-shadow: 0 0 2rem var(--secondary-200);
 
   h1 {
     margin: auto;
@@ -29,7 +29,7 @@
         transform: skewY(-1deg) translateX(-0.25rem) translateY(1.35rem);
         height: 20%;
         width: calc(100% + 0.5rem);
-        background: var(--secondary-color);
+        background: var(--primary-50);
       }
     }
   }

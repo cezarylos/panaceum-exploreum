@@ -1,3 +1,7 @@
-export default function Loading() {
-  return <p>loading...</p>;
+import React, { ReactElement } from 'react';
+
+import styles from './loading.module.scss';
+
+export default function Loading(): ReactElement {
+  return <p className={styles.loading}>Loading...</p>;
 }

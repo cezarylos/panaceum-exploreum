@@ -4,32 +4,37 @@
   width: 100%;
   margin-top: 1rem;
   position: relative;
+  color: var(--secondary-50);
 
   .label {
     display: flex;
     flex-flow: column;
-    color: var(--secondary-50);
     width: 100%;
+    padding: 0 1.25rem;
+    font-weight: 900;
+    color: var(--text-color);
+  }
 
-    .input {
-      outline: none;
-      margin-top: 0.75rem;
-      width: 100%;
-      height: 3rem;
-      border-radius: 2em;
-      padding: 0 1.25rem;
-      font-size: 1rem;
-      border: 2px solid var(--secondary-200);
+  .input {
+    outline: none;
+    margin-top: 0.75rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: 2em;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    border: 2px solid var(--secondary-200);
+    background: var(--secondary-50);
+    color: var(--text-color);
 
-      &:focus:not(.inputInvalid) {
-        border-color: var(--secondary-color);
-        box-shadow: 0 0 10px var(--secondary-color);
-      }
+    &:focus:not(.inputInvalid) {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 10px var(--secondary-color);
     }
+  }
 
-    .inputInvalid {
-      border-color: var(--error-color);
-    }
+  .inputInvalid {
+    border-color: var(--error-color);
   }
 
   .errorText {

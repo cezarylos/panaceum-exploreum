@@ -37,7 +37,7 @@ export default async function Address({
     <div className={styles.container}>
       <GoBackButton />
       <Transactions transactions={result as Array<TransactionInterface>} />
-      <Pagination />
+      <Pagination currentPageOffsetResult={result.length} />
     </div>
   );
 }

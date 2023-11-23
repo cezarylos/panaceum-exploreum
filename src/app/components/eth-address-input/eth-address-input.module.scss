@@ -1,35 +1,25 @@
-.inputWrapper {
+@import "src/app/styles";
+
+.wrapper {
   display: flex;
   flex-flow: column;
   width: 100%;
-  margin-top: 1rem;
   position: relative;
-  color: var(--secondary-50);
-
-  .label {
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    padding: 0 1.25rem;
-    font-weight: 900;
-    color: var(--text-color);
-  }
 
   .input {
     outline: none;
-    margin-top: 0.75rem;
     width: 100%;
-    height: 3rem;
-    border-radius: 2em;
-    padding: 0 1.25rem;
-    font-size: 1rem;
-    border: 2px solid var(--secondary-200);
-    background: var(--secondary-50);
-    color: var(--text-color);
+    height: 100%;
+    font-size: 0.9rem;
+    background: none;
+    color: var(--background-300);
+    border: none;
+    padding: 0 1rem;
+    font-weight: 600;
 
-    &:focus:not(.inputInvalid) {
-      border-color: var(--secondary-color);
-      box-shadow: 0 0 10px var(--secondary-color);
+    &::placeholder {
+      color: var(--background-100);
+      opacity: 0.5;
     }
   }
 
@@ -38,12 +28,43 @@
   }
 
   .errorText {
-    color: var(--error-color);
-    margin-top: 0.75rem;
-    font-weight: 600;
-    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: var(--error-color);
+    border-radius: 0.75rem;
+    color: var(--white-color);
+    font-weight: 400;
+    font-size: 1rem;
     position: absolute;
-    bottom: -1.5rem;
-    left: 1.25rem;
+    bottom: -3rem;
+    left: 0.75rem;
+  }
+}
+
+@include media(map-get($breakpoints, md)) {
+  .wrapper {
+    .input {
+      font-size: 1.15rem;
+      padding: 0 1.5rem;
+    }
+
+    .errorText {
+      font-size: 1.15rem;
+      bottom: -3rem;
+    }
+  }
+}
+
+@include media(map-get($breakpoints, xl)) {
+  .wrapper {
+    .input {
+      font-size: 1.35rem;
+      padding: 0 2rem;
+    }
+
+    .errorText {
+      font-size: 1.35rem;
+      bottom: -3.5rem;
+      left: 1.5rem;
+    }
   }
 }

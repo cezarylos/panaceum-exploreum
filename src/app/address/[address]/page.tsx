@@ -1,3 +1,4 @@
+import { heading } from '@/app/address/[address]/address.const';
 import GoBackButton from '@/app/components/go-back-button/go-back-button';
 import NoTransactions from '@/app/components/no-transactions/no-transactions';
 import Pagination from '@/app/components/pagination/pagination';
@@ -39,9 +40,15 @@ export default async function Address({
 
   return (
     <div className={styles.container}>
-      <GoBackButton />
+      <p>
+        {heading}
+        <strong>{address}</strong>
+      </p>
       <Transactions transactions={result as Array<TransactionInterface>} />
       <Pagination currentPageOffsetResult={result.length} />
+      <div className={styles.backButtonWrapper}>
+        <GoBackButton />
+      </div>
     </div>
   );
 }

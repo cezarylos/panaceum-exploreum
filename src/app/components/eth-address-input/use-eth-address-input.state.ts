@@ -1,10 +1,11 @@
 import { EthAddressInputRef, EthAddressOnchange } from '@/app/components/eth-address-input/eth-address-input';
-import { ChangeEvent, Ref, useImperativeHandle, useState } from 'react';
+import { ChangeEvent, MutableRefObject, Ref, useImperativeHandle, useState } from 'react';
 import { isAddress } from 'web3-validator';
 
 interface UseEthAddressInputStateProps {
   ref: Ref<EthAddressInputRef>;
   onChange: EthAddressOnchange;
+  inputRef: MutableRefObject<HTMLInputElement | null>;
 }
 
 interface UseEthAddressInputStateReturn {
@@ -16,6 +17,7 @@ interface UseEthAddressInputStateReturn {
 export function useEthAddressInputState({
   ref,
   onChange,
+  inputRef,
 }: UseEthAddressInputStateProps): UseEthAddressInputStateReturn {
   const [inputValue, setInputValue] = useState('');
   const [isValidAddress, setIsValidAddress] = useState(true);
@@ -35,6 +37,7 @@ export function useEthAddressInputState({
         setInputValue('');
         setIsValidAddress(true);
       },
+      focus: () => inputRef.current?.focus(),
     }),
   );
 

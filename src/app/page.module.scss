@@ -3,18 +3,14 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  align-items: center;
+  justify-content: center;
   flex: 1;
-}
-
-@include media(map-get($breakpoints, md)) {
-  .wrapper {
-    padding: 4rem;
-  }
+  margin-top: 6.5rem;
+  width: 100vw;
 }
 
 @include media(map-get($breakpoints, xl)) {
   .wrapper {
-    padding: 6rem;
   }
 }

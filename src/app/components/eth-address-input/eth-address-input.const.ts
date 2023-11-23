@@ -1,1 +1,1 @@
-export const invalidAddressText = '!!! Invalid ethereum address !!!';
+export const invalidAddressText = 'Invalid ethereum address';

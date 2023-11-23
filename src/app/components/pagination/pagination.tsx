@@ -43,12 +43,12 @@ export default function Pagination({ currentPageOffsetResult }: PaginationProps)
 
   return (
     <div className={styles.container}>
-      <span>
-        {currentPageText} <strong>{currentPage}</strong>
-      </span>
       <button disabled={isPrevDisabled} onClick={onPrev}>
         {prevText}
       </button>
+      <span className={styles.currentPage}>
+        {currentPageText} <strong>{currentPage}</strong>
+      </span>
       <button disabled={inNextDisabled} onClick={onNext}>
         {nextText}
       </button>

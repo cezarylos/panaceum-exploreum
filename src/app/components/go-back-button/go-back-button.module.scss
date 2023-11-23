@@ -1,6 +1,11 @@
 @import "src/app/styles";
 
 .button {
-  margin: 1rem auto 0 auto;
+  margin: auto auto auto auto;
+  border-radius: var(--border-radius);
+  height: 4rem;
   @include buttonStyles();
+  width: 10rem;
+  font-size: 1.35rem;
+  box-shadow: 0 1px 10px 2px var(--white-color);
 }

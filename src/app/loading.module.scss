@@ -1,36 +1,37 @@
 @import "src/app/styles";
 
-.loading {
-  font-size: 1rem;
-  text-align: center;
-  padding: 0.5rem;
-  color: var(--primary-color);
-  animation: pulse 1s infinite;
-  margin: 4rem 0;
-}
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
+  .loader {
+    text-align: center;
+    border: 0.6rem solid var(--background-400);
+    border-top: 0.6rem solid var(--neon-color);
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    animation: spin 1s linear infinite;
   }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
-@include media(map-get($breakpoints, md)) {
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   .loading {
-    font-size: 1.5rem;
-    padding: 1rem;
-  }
-}
-
-@include media(map-get($breakpoints, xl)) {
-  .loading {
-    font-size: 2rem;
-    padding: 1.5rem;
+    font-size: 5rem;
+    text-align: center;
+    color: var(--neon-color);
+    height: fit-content;
+    width: 100%;
   }
 }

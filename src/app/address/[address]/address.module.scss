@@ -1,5 +1,61 @@
 @import "src/app/styles";
 
 .container {
-  padding: 1rem 2rem;
+  margin-top: 5.5rem;
+  padding: 0.5rem 1rem;
+  width: 100vw;
+  height: calc(100vh - 5.5rem);
+  overflow: auto;
+
+  p {
+    color: var(--white-color);
+    white-space: pre-wrap;
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: clamp(1.5rem, 3vw, 2rem);
+
+    strong {
+      font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+      color: var(--neon-color);
+    }
+  }
+
+  .backButtonWrapper {
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@include media(map-get($breakpoints, md)) {
+  .container {
+    padding: 0 2rem;
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.15rem;
+      white-space: initial;
+      text-align: initial;
+
+      strong {
+        font-size: 1.15rem;
+      }
+    }
+
+    .backButtonWrapper {
+      margin-top: 10rem;
+    }
+  }
+}
+
+@include media(map-get($breakpoints, xl)) {
+  .container {
+    p {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+
+      strong {
+        font-size: 1.5rem;
+      }
+    }
+  }
 }

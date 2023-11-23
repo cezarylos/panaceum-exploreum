@@ -5,17 +5,187 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  flex: 1;
+  position: relative;
+  padding: 1rem;
 
   .text {
-    font-weight: 600;
-    margin-bottom: 1rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
     text-align: center;
-    color: var(--text-color);
+    color: var(--white-color);
+    font-size: 2.5rem;
+    white-space: break-spaces;
+
+    span {
+      font-weight: 800;
+      font-size: 3.5rem;
+      color: var(--neon-color);
+    }
   }
 
-  .submitButton {
-    margin-top: 3rem;
+  .inputCheckbox {
+    display: none;
+  }
+
+  .container.expanded {
+    .wrapper {
+      width: 100%;
+    }
+
+    .toggleButton {
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    .button {
+      transition: 0.2s 0.1s;
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+      outline: none;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .wrapper,
+  .toggleButton {
+    width: 15rem;
+    height: 4rem;
+    font-size: 1rem;
+  }
+
+  .container {
+    position: relative;
+    font-weight: 700;
+  }
+
+  .wrapper,
+  .toggleButton {
+    position: absolute;
+    border-radius: var(--border-radius);
+    background-color: white;
+    transition: 0.2s;
+  }
+
+  .wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.625rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 1px 10px 2px var(--white-color);
+  }
+
+  .hasError {
+    box-shadow: 0 1px 10px 2px var(--error-color);
+  }
+
+  .toggleButton {
     @include buttonStyles();
+  }
+
+  .button {
+    font: inherit;
+    outline: 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.7);
+    transition: 0s;
+    outline: none;
+    color: inherit;
+    padding: 0;
+    height: 100%;
+    @include buttonStyles();
+    border-radius: var(--border-radius);
+    border: 5px solid var(--background-300);
+    width: 5rem;
+
+    &:disabled {
+      border: none;
+    }
+  }
+}
+
+@media all and (orientation: portrait) {
+  .form {
+    margin-bottom: 12rem;
+  }
+}
+
+@include media(map-get($breakpoints, md)) {
+  .form {
+    margin-bottom: 15rem;
+
+    .text {
+      margin-bottom: 2.5rem;
+      font-size: 5rem;
+
+      span {
+        font-size: 6rem;
+      }
+    }
+
+    .container.expanded {
+      .wrapper {
+        width: 48rem;
+      }
+    }
+
+    .wrapper,
+    .toggleButton {
+      width: 25rem;
+      height: 6.25rem;
+      font-size: 1rem;
+    }
+
+    .button {
+      font-size: 1.75rem;
+      width: 10rem;
+    }
+  }
+}
+
+@include media(map-get($breakpoints, xl)) {
+  .form {
+    margin-bottom: 15rem;
+
+    .text {
+      margin-bottom: 3rem;
+      font-size: 7rem;
+
+      span {
+        font-size: 8.5rem;
+      }
+    }
+
+    .container.expanded {
+      .wrapper {
+        width: 48rem;
+      }
+    }
+
+    .wrapper,
+    .toggleButton {
+      width: 25rem;
+      height: 6.25rem;
+      font-size: 1rem;
+    }
+
+    .button {
+      font-size: 1.75rem;
+      width: 10rem;
+    }
   }
 }

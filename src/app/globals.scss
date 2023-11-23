@@ -39,7 +39,6 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
   content: none;
 }
 
@@ -48,52 +47,21 @@ table {
   border-spacing: 0;
 }
 
-:root {
-  --primary-50: #8DBDD8; /* Light Steel Blue */
-  --primary-100: #5B9FBB; /* Steel Blue */
-  --primary-200: #2A81A3; /* Darker Steel Blue */
-  --primary-300: #005385; /* Darkest Steel Blue */
-  --primary-color: #005385; /* Crypto Steel Blue */
-  --secondary-50: #F7D794; /* Light Gold */
-  --secondary-100: #F3C06B; /* Gold */
-  --secondary-200: #EFA73F; /* Darker Gold */
-  --secondary-300: #EB8F12; /* Darkest Gold */
-  --secondary-color: #EB8F12; /* Crypto Gold */
-  --error-color: #FF6B6B; /* Light Crimson */
-  --success-color: #4CAF50; /* Crypto Green */
-  --warning-color: #FF9800; /* Crypto Orange */
-  --info-color: #03A9F4; /* Crypto Blue */
-  --background-50: #FFF5E1; /* Light Beige */
-  --background-100: #FFEDD0; /* Beige */
-  --background-200: #FFDBB8; /* Darker Beige */
-  --background-300: #FFC89F; /* Darkest Beige */
-  --background-color: #f18e4b; /* Crypto Beige */
-  --text-color: #083838; /* Dark Gray */
+*, :after, :before {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-50: #FFEBEE; /* Light Red */
-    --primary-100: #FFCDD2; /* Red */
-    --primary-200: #EF9A9A; /* Darker Red */
-    --primary-300: #E57373; /* Darkest Red */
-    --primary-color: #E57373; /* Crypto Red */
-    --secondary-50: #2E3E4E; /* Darker Steel Blue */
-    --secondary-100: #273540; /* Steel Blue */
-    --secondary-200: #1F2B33; /* Darker Steel Blue */
-    --secondary-300: #182026; /* Darkest Steel Blue */
-    --secondary-color: #182026; /* Crypto Dark Blue */
-    --error-color: #FF6B6B; /* Light Crimson */
-    --success-color: #4CAF50; /* Crypto Green */
-    --warning-color: #FF9800; /* Crypto Orange */
-    --info-color: #03A9F4; /* Crypto Blue */
-    --background-50: #394240; /* Slate Gray 50 */
-    --background-100: #4D555E; /* Slate Gray 100 */
-    --background-200: #626C78; /* Slate Gray 200 */
-    --background-300: #768590; /* Slate Gray 300 */
-    --background-color: #333B45; /* Crypto Slate Gray */
-    --text-color: #E0E0E0; /* Light Gray */
-  }
+:root {
+  --error-color: #f65480; /* Light Crimson */
+  --background-50: rgb(119, 104, 250); /* Light Beige */
+  --background-100: rgb(108, 25, 164); /* Beige */
+  --background-300: rgb(83, 19, 122); /* Darkest Beige */
+  --background-400: #0b0026; /* Darkest Beige */
+  --text-color: #083838; /* Dark Gray */
+  --white-color: rgb(253 244 255); /* White */
+  --neon-color: rgb(196, 251, 155);
+  --disabled-color: rgb(154, 164, 151);
+  --border-radius: 5rem;
 }
 
 * {
@@ -110,17 +78,25 @@ body {
 
 body {
   height: 100vh;
-  color: var(--text-color);
-  background: linear-gradient(
-                  to bottom,
-                  transparent,
-                  var(--background-300)
-  ) var(--background-100);
+  overflow: auto;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include animatedBg();
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.001s !important;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -138,19 +114,42 @@ p {
 }
 
 @include media(map-get($breakpoints, md)) {
-    h1 {
-        font-size: 1.5rem;
-    }
-    p {
-        font-size: 1.25rem;
-    }
+  h1 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1.25rem;
+  }
 }
 
 @include media(map-get($breakpoints, xl)) {
-    h1 {
-        font-size: 2rem;
-    }
-    p {
-        font-size: 1.5rem;
-    }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
 }
+
+*::selection {
+  background: var(--neon-color);
+}
+
+input,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  border-radius: var(--border-radius);
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  caret-color: var(--background-400);
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--background-300) !important;
+}
+
+
+

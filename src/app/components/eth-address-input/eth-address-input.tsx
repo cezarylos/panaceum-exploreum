@@ -3,7 +3,7 @@
 import { invalidAddressText } from '@/app/components/eth-address-input/eth-address-input.const';
 import { useEthAddressInputState } from '@/app/components/eth-address-input/use-eth-address-input.state';
 import { classNames } from '@/app/utils/classNames';
-import { forwardRef, ReactElement, Ref } from 'react';
+import { forwardRef, ReactElement, Ref, useRef } from 'react';
 
 import styles from './eth-address-input.module.scss';
 
@@ -17,21 +17,22 @@ interface EthAddressInputProps {
 
 export interface EthAddressInputRef {
   clearInput: () => void;
+  focus: () => void;
 }
 
-function EthAddressInput(
-  { onChange, placeholder, label }: EthAddressInputProps,
-  ref: Ref<EthAddressInputRef>,
-): ReactElement {
+function EthAddressInput({ onChange, placeholder }: EthAddressInputProps, ref: Ref<EthAddressInputRef>): ReactElement {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
   const { inputValue, handleInputChange, isValidAddress } = useEthAddressInputState({
     ref,
     onChange,
+    inputRef,
   });
 
   return (
-    <div className={styles.inputWrapper}>
-      <label className={styles.label}>{label}</label>
+    <div className={styles.wrapper}>
       <input
+        ref={inputRef}
         name={'ethAddress'}
         type={'text'}
         value={inputValue}

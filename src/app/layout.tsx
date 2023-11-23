@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Image
             src="/images/bg.webp"
             fill={true}
+            priority
             alt={'Background Image'}
             objectFit={'cover'}
             objectPosition={'center center'}

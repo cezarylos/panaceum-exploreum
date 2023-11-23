@@ -6,11 +6,7 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  margin-top: 6.5rem;
   width: 100vw;
-}
-
-@include media(map-get($breakpoints, xl)) {
-  .wrapper {
-  }
+  height: calc(100vh - 5.5rem);
+  overflow: auto;
 }

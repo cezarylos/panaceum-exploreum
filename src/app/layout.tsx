@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             objectFit={'cover'}
             objectPosition={'center center'}
             style={{ filter: 'brightness(0.4)', opacity: '0.6' }}
+            className={styles.bgImage}
           />
           <Header />
           {children}

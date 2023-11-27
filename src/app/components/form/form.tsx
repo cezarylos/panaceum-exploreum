@@ -50,7 +50,7 @@ export default function Form(): ReactElement {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <p className={classNames(styles.text, agdasima.className, styles.hidden)}>
+      <p className={classNames(styles.text, agdasima.className)}>
         {`${headingText1}\n`}
         <span>{headingText2}</span> {headingText3}
       </p>

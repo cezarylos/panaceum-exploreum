@@ -7,7 +7,7 @@
   align-items: center;
   position: sticky;
   margin: 1rem;
-  width: calc(100% - 2rem);
+  width: calc(100vw - 2rem);
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px 0 #000;
   background-image: linear-gradient(150deg, var(--background-400) 5%, var(--background-300) 100%);
